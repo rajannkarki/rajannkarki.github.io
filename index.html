@@ -1,27 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1375474490596764"
-     crossorigin="anonymous"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rajan Narki — CS Student & Cybersecurity</title>
-  <meta name="description" content="Computer Science undergraduate at UTA specializing in cybersecurity. Building secure systems, breaking things to learn, and documenting the journey." />
+  <title>Rajan Karki — CS Student & Cybersecurity</title>
+  <meta name="description" content="Rajan Karki — Computer Science undergraduate at UT Arlington specializing in cybersecurity. I build secure systems, break things to learn how they work, and document the journey." />
+  <meta property="og:title" content="Rajan Karki — CS Student & Cybersecurity" />
+  <meta property="og:description" content="CS undergrad at UT Arlington focused on cybersecurity. Building, breaking, and learning in public." />
+  <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1375474490596764"
+     crossorigin="anonymous"></script>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --bg: #0a0a0f;
-      --surface: #0d0d17;
-      --border: #1a1a26;
-      --border-hover: #2a2a3a;
-      --accent: #6c63ff;
-      --text-primary: #f0f0fa;
-      --text-secondary: #e8e8f0;
-      --text-muted: #888;
-      --text-dim: #555;
+      --bg: #0a0b10;
+      --bg-soft: #0e0f17;
+      --surface: #12131f;
+      --surface-2: #161829;
+      --border: #1e2030;
+      --border-hover: #2c2f45;
+      --accent: #7c6cff;
+      --accent-2: #21d4a8;
+      --accent-glow: rgba(124, 108, 255, 0.35);
+      --text-primary: #f4f4fb;
+      --text-secondary: #d4d4e4;
+      --text-muted: #8a8aa0;
+      --text-dim: #5a5a70;
     }
 
     html { scroll-behavior: smooth; }
@@ -32,269 +40,356 @@
       color: var(--text-secondary);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Ambient gradient background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(600px circle at 20% 10%, rgba(124, 108, 255, 0.12), transparent 45%),
+        radial-gradient(500px circle at 85% 30%, rgba(33, 212, 168, 0.08), transparent 45%),
+        radial-gradient(700px circle at 50% 100%, rgba(124, 108, 255, 0.06), transparent 50%);
+      pointer-events: none;
     }
 
     .container {
-      max-width: 860px;
+      max-width: 880px;
       margin: 0 auto;
       padding: 0 2rem;
     }
 
+    .mono { font-family: 'JetBrains Mono', monospace; }
+
     /* NAV */
     nav {
-      padding: 1.5rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 1.1rem 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 0.5px solid var(--border);
+      backdrop-filter: blur(12px);
+      background: rgba(10, 11, 16, 0.6);
+      border-bottom: 1px solid var(--border);
     }
     .nav-name {
       font-size: 15px;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      color: var(--text-secondary);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: var(--text-primary);
       text-decoration: none;
-    }
-    .nav-links {
       display: flex;
-      gap: 1.5rem;
+      align-items: center;
+      gap: 8px;
     }
+    .nav-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--accent-2);
+      box-shadow: 0 0 10px var(--accent-2);
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .nav-links { display: flex; gap: 1.5rem; }
     .nav-links a {
       font-size: 13px;
       color: var(--text-muted);
       text-decoration: none;
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--text-secondary); }
+    .nav-links a:hover { color: var(--text-primary); }
 
     /* HERO */
-    .hero { padding: 5rem 0 3.5rem; }
+    .hero { padding: 4.5rem 0 3rem; }
 
     .hero-eyebrow {
       font-size: 12px;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--accent-2);
       margin-bottom: 1.25rem;
       font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 24px; height: 1px;
+      background: var(--accent-2);
     }
 
     .hero h1 {
-      font-size: clamp(2.2rem, 5vw, 3.4rem);
-      font-weight: 600;
-      line-height: 1.12;
-      letter-spacing: -0.02em;
+      font-size: clamp(2.3rem, 5.5vw, 3.6rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
       color: var(--text-primary);
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.35rem;
     }
-
-    .hero h1 span { color: var(--accent); }
+    .hero h1 .grad {
+      background: linear-gradient(120deg, var(--accent) 20%, var(--accent-2) 90%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
     .hero-sub {
-      font-size: 16px;
+      font-size: 16.5px;
       color: var(--text-muted);
-      line-height: 1.7;
-      max-width: 520px;
+      line-height: 1.75;
+      max-width: 560px;
       margin-bottom: 2rem;
     }
+    .hero-sub strong { color: var(--text-secondary); font-weight: 500; }
 
     .hero-badges {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2.25rem;
     }
-
     .badge {
       font-size: 12px;
-      padding: 5px 12px;
+      padding: 6px 13px;
       border-radius: 100px;
-      border: 0.5px solid var(--border-hover);
-      color: #aaa;
+      border: 1px solid var(--border-hover);
+      color: var(--text-muted);
       background: var(--surface);
+      transition: all 0.2s;
     }
+    .badge:hover { color: var(--text-primary); border-color: var(--accent); transform: translateY(-2px); }
 
-    .cta-row {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
 
     .btn-primary {
-      font-size: 13px;
-      padding: 10px 22px;
+      font-size: 13.5px;
+      padding: 11px 24px;
       background: var(--accent);
       color: #fff;
-      border-radius: 8px;
+      border-radius: 9px;
       text-decoration: none;
       font-weight: 500;
-      transition: opacity 0.2s;
+      transition: all 0.2s;
+      box-shadow: 0 4px 20px var(--accent-glow);
     }
-    .btn-primary:hover { opacity: 0.85; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px var(--accent-glow); }
 
     .btn-ghost {
-      font-size: 13px;
-      padding: 10px 22px;
+      font-size: 13.5px;
+      padding: 11px 24px;
       background: transparent;
-      color: #aaa;
-      border-radius: 8px;
+      color: var(--text-secondary);
+      border-radius: 9px;
       text-decoration: none;
       font-weight: 500;
-      border: 0.5px solid var(--border-hover);
-      transition: border-color 0.2s, color 0.2s;
+      border: 1px solid var(--border-hover);
+      transition: all 0.2s;
     }
-    .btn-ghost:hover { border-color: var(--accent); color: var(--text-secondary); }
+    .btn-ghost:hover { border-color: var(--accent); color: #fff; transform: translateY(-2px); }
+
+    .availability {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: 4px;
+    }
+    .availability .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--accent-2);
+      box-shadow: 0 0 8px var(--accent-2);
+    }
 
     /* SECTIONS */
-    .section {
-      padding: 3.5rem 0;
-      border-top: 0.5px solid var(--border);
-    }
+    .section { padding: 3.5rem 0; border-top: 1px solid var(--border); }
 
     .section-label {
       font-size: 11px;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--accent-2);
       margin-bottom: 1.75rem;
-      font-weight: 500;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-label::before {
+      content: '';
+      width: 18px; height: 1px;
+      background: var(--accent-2);
+      opacity: 0.6;
     }
 
-    /* PROJECTS */
-    .projects-grid {
+    /* ABOUT */
+    .about-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .about p {
+      font-size: 15.5px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      max-width: 640px;
+    }
+    .about p + p { margin-top: 1rem; }
+    .about .hl { color: var(--accent-2); font-weight: 500; }
+    .about a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+    .about a:hover { border-color: var(--accent); }
+
+    .quick-facts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       gap: 1px;
       background: var(--border);
       border: 1px solid var(--border);
       border-radius: 12px;
       overflow: hidden;
+      margin-top: 2rem;
+    }
+    .fact {
+      background: var(--surface);
+      padding: 1.1rem 1.25rem;
+    }
+    .fact-label {
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      margin-bottom: 5px;
+    }
+    .fact-value { font-size: 13.5px; color: var(--text-primary); font-weight: 500; }
+
+    /* PROJECTS */
+    .projects-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+    @media (min-width: 640px) {
+      .projects-grid { grid-template-columns: 1fr 1fr; }
     }
 
     .project-card {
       background: var(--surface);
-      padding: 1.5rem;
-      transition: background 0.2s;
+      border: 1px solid var(--border);
+      padding: 1.6rem;
+      border-radius: 14px;
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
     }
-    .project-card:hover { background: #111120; }
+    .project-card::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(400px circle at var(--mx, 50%) var(--my, 0%), rgba(124,108,255,0.08), transparent 40%);
+      opacity: 0; transition: opacity 0.3s;
+      pointer-events: none;
+    }
+    .project-card:hover { border-color: var(--border-hover); transform: translateY(-3px); }
+    .project-card:hover::after { opacity: 1; }
 
+    .project-head { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; }
     .project-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      background: #1a1a30;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1rem;
-      font-size: 18px;
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 19px;
+      flex-shrink: 0;
     }
+    .project-title { font-size: 15px; font-weight: 600; color: var(--text-primary); }
+    .project-meta { font-size: 11.5px; color: var(--text-dim); }
 
-    .project-title {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text-primary);
-      margin-bottom: 6px;
-    }
-
-    .project-desc {
-      font-size: 13px;
-      color: #666;
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-
-    .project-tags { margin-bottom: 1rem; }
-
+    .project-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.65; margin-bottom: 1rem; }
+    .project-tags { margin-bottom: 1.1rem; display: flex; flex-wrap: wrap; gap: 5px; }
     .project-tag {
       font-size: 11px;
-      padding: 3px 8px;
-      background: #1a1a30;
-      color: #888;
-      border-radius: 4px;
-      margin-right: 4px;
-      display: inline-block;
+      padding: 3px 9px;
+      background: var(--surface-2);
+      color: var(--text-muted);
+      border-radius: 5px;
+      font-family: 'JetBrains Mono', monospace;
     }
-
     .project-link {
-      font-size: 12px;
+      font-size: 12.5px;
       color: var(--accent);
       text-decoration: none;
-      transition: opacity 0.2s;
+      font-weight: 500;
+      display: inline-flex; align-items: center; gap: 5px;
+      transition: gap 0.2s;
     }
-    .project-link:hover { opacity: 0.75; }
+    .project-link:hover { gap: 9px; }
 
     /* SKILLS */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
       gap: 1rem;
     }
-
     .skill-group {
-      padding: 1.25rem;
+      padding: 1.4rem;
       background: var(--surface);
-      border: 0.5px solid var(--border);
-      border-radius: 10px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: border-color 0.2s;
     }
-
+    .skill-group:hover { border-color: var(--border-hover); }
     .skill-group-title {
-      font-size: 12px;
-      font-weight: 500;
+      font-size: 11.5px; font-weight: 600;
       color: var(--accent);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.09em;
     }
-
     .skill-item {
-      font-size: 13px;
-      color: var(--text-muted);
-      padding: 4px 0;
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      padding: 5px 0;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .skill-item::before {
+      content: '▹'; color: var(--accent-2); font-size: 11px;
     }
 
     /* CONTACT */
-    .contact-intro {
-      font-size: 15px;
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
-      max-width: 440px;
-    }
-
-    .contact-block {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
+    .contact-intro { font-size: 16px; color: var(--text-secondary); margin-bottom: 1.75rem; max-width: 500px; line-height: 1.7; }
+    .contact-block { display: flex; gap: 0.75rem; flex-wrap: wrap; }
     .contact-pill {
-      font-size: 13px;
-      padding: 10px 18px;
+      font-size: 13.5px;
+      padding: 12px 20px;
       background: var(--surface);
-      border: 0.5px solid var(--border);
-      border-radius: 8px;
-      color: #aaa;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text-secondary);
       text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: border-color 0.2s, color 0.2s;
+      display: flex; align-items: center; gap: 9px;
+      transition: all 0.2s;
     }
-    .contact-pill:hover { border-color: var(--accent); color: var(--text-secondary); }
+    .contact-pill:hover { border-color: var(--accent); color: #fff; transform: translateY(-2px); }
+    .contact-pill svg { width: 16px; height: 16px; }
 
     /* FOOTER */
     footer {
-      padding: 2rem 0;
-      border-top: 0.5px solid var(--border);
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--border);
       text-align: center;
-      font-size: 12px;
-      color: #444;
+      font-size: 12.5px;
+      color: var(--text-dim);
     }
+    footer .mono { color: var(--text-muted); }
 
-    /* MOBILE */
+    /* reveal animation */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+
     @media (max-width: 600px) {
       .container { padding: 0 1.25rem; }
-      .hero { padding: 3rem 0 2.5rem; }
+      .hero { padding: 3rem 0 2.25rem; }
       .nav-links { gap: 1rem; }
     }
   </style>
@@ -303,20 +398,22 @@
 <div class="container">
 
   <nav>
-    <a href="/" class="nav-name">Rajan Narki</a>
+    <a href="#top" class="nav-name"><span class="nav-dot"></span>Rajan Karki</a>
     <div class="nav-links">
+      <a href="#about">About</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
 
-  <section class="hero">
+  <section class="hero" id="top">
     <div class="hero-eyebrow">CS Student · Cybersecurity</div>
-    <h1>Building secure<br>systems &amp; <span>solving problems</span></h1>
+    <h1>Hi, I'm Rajan.<br>I build secure systems<br>&amp; <span class="grad">break things to learn.</span></h1>
     <p class="hero-sub">
-      Computer Science undergraduate at the University of Texas at Arlington, specializing in cybersecurity.
-      I build projects, break things to learn how they work, and document the journey.
+      Computer Science undergrad at the <strong>University of Texas at Arlington</strong>, focused on cybersecurity.
+      I spend my time building real projects, taking systems apart to understand how they work, and documenting
+      everything I learn along the way. Curious by default, hands-on by habit.
     </p>
     <div class="hero-badges">
       <span class="badge">CompTIA Security+</span>
@@ -327,53 +424,130 @@
       <span class="badge">React</span>
     </div>
     <div class="cta-row">
-      <a href="https://github.com/rajannkarki" class="btn-primary" target="_blank" rel="noopener">GitHub</a>
-      <a href="mailto:rxk3659@mavs.uta.edu" class="btn-ghost">Email me</a>
+      <a href="mailto:rajankarki0924@gmail.com" class="btn-primary">Get in touch</a>
+      <a href="https://github.com/rajannkarki" class="btn-ghost" target="_blank" rel="noopener">View GitHub</a>
+      <span class="availability"><span class="dot"></span>Open to internships &amp; CPT roles</span>
     </div>
   </section>
 
-  <section class="section" id="projects">
-    <div class="section-label">Projects</div>
+  <section class="section reveal" id="about">
+    <div class="section-label">About</div>
+    <div class="about">
+      <p>
+        My path into tech started with a simple question: <span class="hl">"but how does that actually work?"</span>
+        That question pulled me into computers, then into security — where the fun is in understanding a system
+        well enough to find where it bends and where it breaks.
+      </p>
+      <p>
+        These days I'm studying CS at UT Arlington and chasing cybersecurity with everything I've got. I built a
+        <span class="hl">Proxmox home lab</span> so I'd have a safe place to actually attack and defend real machines,
+        I grind boxes on TryHackMe, and I'm working toward my <span class="hl">CompTIA Security+</span>. On the
+        development side, I ship small projects in Python, Django, and React because I learn best by building things
+        people can actually use.
+      </p>
+      <p>
+        When I'm not in a terminal, you'll find me editing video in DaVinci Resolve, tinkering with my dual-boot Linux
+        setup, or going down a rabbit hole on whatever caught my attention that week. I believe in learning in public —
+        so most of what I make ends up on <a href="https://github.com/rajannkarki" target="_blank" rel="noopener">GitHub</a>.
+      </p>
+      <div class="quick-facts">
+        <div class="fact">
+          <div class="fact-label">Location</div>
+          <div class="fact-value">Arlington, TX</div>
+        </div>
+        <div class="fact">
+          <div class="fact-label">Focus</div>
+          <div class="fact-value">Cybersecurity</div>
+        </div>
+        <div class="fact">
+          <div class="fact-label">Currently learning</div>
+          <div class="fact-value">Pentesting & Security+</div>
+        </div>
+        <div class="fact">
+          <div class="fact-label">Status</div>
+          <div class="fact-value">Open to opportunities</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal" id="projects">
+    <div class="section-label">Selected Projects</div>
     <div class="projects-grid">
 
       <div class="project-card">
-        <div class="project-icon">🎫</div>
-        <div class="project-title">Scratch Tracker</div>
-        <p class="project-desc">A web app for tracking scratch-off lottery tickets — log purchases, winnings, and view stats over time.</p>
+        <div class="project-head">
+          <div class="project-icon">🎫</div>
+          <div>
+            <div class="project-title">Scratch Tracker</div>
+            <div class="project-meta">Web App · Live</div>
+          </div>
+        </div>
+        <p class="project-desc">A web app for tracking scratch-off lottery tickets — log purchases and winnings, then watch your net stats and trends build up over time. Built it to learn how to design data around a real, messy everyday habit.</p>
         <div class="project-tags">
           <span class="project-tag">JavaScript</span>
           <span class="project-tag">HTML/CSS</span>
+          <span class="project-tag">LocalStorage</span>
         </div>
-        <a href="https://rajannkarki.github.io/scratch-tracker/" class="project-link" target="_blank" rel="noopener">View project →</a>
+        <a href="https://rajannkarki.github.io/scratch-tracker/" class="project-link" target="_blank" rel="noopener">View live project →</a>
       </div>
 
       <div class="project-card">
-        <div class="project-icon">💰</div>
-        <div class="project-title">Money Tracker</div>
-        <p class="project-desc">Personal finance tracker built with React — log income and expenses, and visualize spending patterns at a glance.</p>
+        <div class="project-head">
+          <div class="project-icon">💰</div>
+          <div>
+            <div class="project-title">Money Tracker</div>
+            <div class="project-meta">React App</div>
+          </div>
+        </div>
+        <p class="project-desc">A personal finance tracker built with React — log income and expenses and visualize where your money actually goes at a glance. My playground for component state, hooks, and clean UI patterns.</p>
         <div class="project-tags">
           <span class="project-tag">React</span>
           <span class="project-tag">JavaScript</span>
+          <span class="project-tag">Hooks</span>
         </div>
         <a href="https://github.com/rajannkarki" class="project-link" target="_blank" rel="noopener">View on GitHub →</a>
       </div>
 
       <div class="project-card">
-        <div class="project-icon">🔐</div>
-        <div class="project-title">Home Lab</div>
-        <p class="project-desc">Proxmox-based home lab running Metasploitable2 for hands-on penetration testing and security research.</p>
+        <div class="project-head">
+          <div class="project-icon">🔐</div>
+          <div>
+            <div class="project-title">Cybersecurity Home Lab</div>
+            <div class="project-meta">Security · Ongoing</div>
+          </div>
+        </div>
+        <p class="project-desc">A Proxmox-based home lab running Metasploitable2 for hands-on pentesting and security research. My personal sandbox for practicing recon, exploitation, and defense on systems I'm allowed to break.</p>
         <div class="project-tags">
           <span class="project-tag">Proxmox</span>
           <span class="project-tag">Kali Linux</span>
+          <span class="project-tag">Metasploit</span>
         </div>
         <a href="https://github.com/rajannkarki" class="project-link" target="_blank" rel="noopener">View on GitHub →</a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-head">
+          <div class="project-icon">🧪</div>
+          <div>
+            <div class="project-title">TryHackMe Journey</div>
+            <div class="project-meta">Learning Log</div>
+          </div>
+        </div>
+        <p class="project-desc">An ongoing run through TryHackMe rooms — from networking fundamentals to web exploitation and privilege escalation. Working through paths consistently and taking notes on everything that clicks.</p>
+        <div class="project-tags">
+          <span class="project-tag">Pentesting</span>
+          <span class="project-tag">Linux</span>
+          <span class="project-tag">Web Sec</span>
+        </div>
+        <a href="https://github.com/rajannkarki" class="project-link" target="_blank" rel="noopener">More on GitHub →</a>
       </div>
 
     </div>
   </section>
 
-  <section class="section" id="skills">
-    <div class="section-label">Skills</div>
+  <section class="section reveal" id="skills">
+    <div class="section-label">Skills & Tools</div>
     <div class="skills-grid">
       <div class="skill-group">
         <div class="skill-group-title">Security</div>
@@ -390,7 +564,7 @@
         <div class="skill-item">PostgreSQL</div>
       </div>
       <div class="skill-group">
-        <div class="skill-group-title">Tools</div>
+        <div class="skill-group-title">Tools & Systems</div>
         <div class="skill-item">Git / GitHub</div>
         <div class="skill-item">Linux (Dual-boot)</div>
         <div class="skill-item">Proxmox</div>
@@ -399,26 +573,50 @@
     </div>
   </section>
 
-  <section class="section" id="contact">
-    <div class="section-label">Contact</div>
-    <p class="contact-intro">Open to internships, CPT-eligible roles, and collaborations in cybersecurity and software development.</p>
+  <section class="section reveal" id="contact">
+    <div class="section-label">Get in touch</div>
+    <p class="contact-intro">
+      I'm actively looking for <strong style="color:var(--text-primary)">internships, CPT-eligible roles, and collaborations</strong>
+      in cybersecurity and software development. If you're building something interesting — or just want to talk shop — my inbox is open.
+    </p>
     <div class="contact-block">
-      <a href="mailto:rxk3659@mavs.uta.edu" class="contact-pill">
-        ✉ rxk3659@mavs.uta.edu
+      <a href="mailto:rajankarki0924@gmail.com" class="contact-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+        rajankarki0924@gmail.com
       </a>
       <a href="https://github.com/rajannkarki" class="contact-pill" target="_blank" rel="noopener">
-        ⌥ github.com/rajannkarki
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.16.58.67.48A10 10 0 0 0 22 12c0-5.52-4.48-10-10-10z"/></svg>
+        github.com/rajannkarki
       </a>
       <a href="https://www.linkedin.com/in/rajannkarki" class="contact-pill" target="_blank" rel="noopener">
-        in LinkedIn
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 9.5H5.67V18h2.67V9.5zM7 5.9a1.55 1.55 0 1 0 0 3.1 1.55 1.55 0 0 0 0-3.1zM18.34 18v-4.66c0-2.49-1.33-3.65-3.1-3.65-1.43 0-2.07.79-2.43 1.34V9.5h-2.67V18h2.67v-4.39c0-.23.02-.46.08-.62.18-.46.6-.94 1.3-.94.92 0 1.29.7 1.29 1.72V18h2.67z"/></svg>
+        LinkedIn
       </a>
     </div>
   </section>
 
   <footer>
-    <p>© 2026 Rajan Narki · University of Texas at Arlington</p>
+    <p class="mono">$ whoami → rajan_karki</p>
+    <p style="margin-top:8px">© 2026 Rajan Karki · University of Texas at Arlington · Built from scratch 🛠️</p>
   </footer>
 
 </div>
+
+<script>
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Project card spotlight follow
+  document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  });
+</script>
 </body>
 </html>
